@@ -25,7 +25,7 @@ ul {
 
 /* end global rules */
 
-main {
+body {
   display: flex;
 }
 
@@ -36,8 +36,8 @@ aside {
   box-shadow: 0 0 10px #ddd;
   padding: 20px;
   min-height: 100vh;
+  z-index: 3;
 }
-
 aside .logo {
   font-weight: bold;
   width: fit-content;
@@ -45,7 +45,6 @@ aside .logo {
   text-transform: capitalize;
   position: relative;
 }
-
 aside .logo::before {
   content: '';
   height: 2px;
@@ -56,7 +55,6 @@ aside .logo::before {
   left: 50%;
   transform: translateX(-50%);
 }
-
 aside .logo::after {
   content: '';
   --ball-size: 12px;
@@ -98,3 +96,77 @@ aside .links li.active a:hover {
 }
 
 /* end sidebar */
+
+/* start main */
+
+main {
+  flex: 1;
+}
+
+/* start header */
+
+header {
+  height: 67px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+header form {
+  position: relative;
+}
+header form i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+header input[type='search'] {
+  padding: 10px 10px 10px 35px;
+  border-radius: 10px;
+  border: 1px #ccc solid;
+  outline: none;
+  width: 180px;
+  transition: var(--transition-duration);
+}
+header input[type='search']:focus {
+  width: 210px;
+}
+header input[type='search']::placeholder {
+  font-size: 14px;
+  letter-spacing: -1px;
+}
+header input[type='search']:focus::placeholder {
+  color: transparent;
+}
+header .options {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+header .options .notif {
+  position: relative;
+  font-size: 20px;
+}
+header .options .notif::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 10px;
+  height: 10px;
+  background-color: #f44336;
+  border-radius: 50%;
+}
+header .options .profile-pic {
+  width: 32px;
+}
+header .options .profile-pic img {
+  max-width: 100%;
+}
+
+/* end header */
+
+/* end main */
