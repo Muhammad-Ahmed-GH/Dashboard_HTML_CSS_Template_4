@@ -1,5 +1,19 @@
+/* start variable */
+
+:root {
+  --transition-duration: 0.3s;
+  --active-background: rgb(212, 238, 255);
+  --active-background-alt: rgb(180, 225, 255);
+}
+
+/* end variable */
+/* start global rules */
+
 html {
   scroll-behavior: smooth;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -8,3 +22,79 @@ ul {
   list-style: none;
   padding: 0;
 }
+
+/* end global rules */
+
+main {
+  display: flex;
+}
+
+/* start sidebar */
+
+aside {
+  width: 250px;
+  box-shadow: 0 0 10px #ddd;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+aside .logo {
+  font-weight: bold;
+  width: fit-content;
+  margin: 0 auto 50px;
+  text-transform: capitalize;
+  position: relative;
+}
+
+aside .logo::before {
+  content: '';
+  height: 2px;
+  width: 120%;
+  background-color: black;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+aside .logo::after {
+  content: '';
+  --ball-size: 12px;
+  width: var(--ball-size);
+  height: var(--ball-size);
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  bottom: calc(-20px - var(--ball-size)/2 - 4px + 2px/2);
+  /* -20px [vertical offset] - size/2 [ball radius] - border width + half line(::before) width */
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px white solid;
+}
+aside .links li:not(:last-child) {
+  margin-bottom: 5px;
+}
+aside .links li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: var(--transition-duration);
+}
+aside .links li a:hover {
+  background-color: #f6f6f6;
+}
+aside .links li.active a {
+  /* background-color: #ebebeb; */
+  background-color: var(--active-background);
+}
+aside .links li.active a:hover {
+  /* background-color: #e3e3e3; */
+  background-color: var(--active-background-alt);
+}
+
+/* end sidebar */
